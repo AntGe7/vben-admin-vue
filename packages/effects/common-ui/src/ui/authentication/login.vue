@@ -50,10 +50,10 @@ const REMEMBER_ME_KEY = `REMEMBER_ME_USERNAME_${location.hostname}`;
 const localUsername = localStorage.getItem(REMEMBER_ME_KEY) || '';
 
 const formState = reactive({
-  password: '',
+  password: 'YWRtaW4xMjM=',
   rememberMe: !!localUsername,
   submitted: false,
-  username: localUsername,
+  username: 'admin',
 });
 
 const usernameStatus = computed(() => {
@@ -80,6 +80,8 @@ function handleSubmit() {
   );
 
   emit('submit', {
+    isPassword:1,
+    remember_me:"",
     password: formState.password,
     username: formState.username,
   });
